@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Calculator} from './components/calc.js';
+import CalcScreen from './Views/CalcScreen';
+import IntroScreen from './Views/IntroScreen';
+
 
 export default function App() {
+  const [isLoaded,setisLoaded] = useState(false)
+
+setTimeout(()=> setisLoaded(true),2000)
+
   return (
     <View style={styles.container}>
-      <Calculator/>
+     <Text>Hii There</Text>
+     {isLoaded ? <CalcScreen/> : <IntroScreen/>}
       <StatusBar style="auto" />
     </View>
   );
@@ -13,7 +21,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    
+    flex:1,
+    backgroundColor:"aqua",
     alignItems: 'center',
     justifyContent: 'center',
   },
